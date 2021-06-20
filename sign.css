@@ -1,5 +1,6 @@
     body {
         font-family: Arial, Helvetica, sans-serif;
+        background-image: url("background.PNG");
     }
     
     .flip-card {
@@ -8,8 +9,6 @@
         height: 300px;
         perspective: 1000px;
         animation: rotation 2s infinite;
-        /* animation: rotation ;    
-    animation-duration:; */
     }
     
     .flip-card-inner {
@@ -17,13 +16,42 @@
         width: 100%;
         height: 100%;
         text-align: center;
-        transition: transform 2s;
+        /* transition: transform 2s; */
         transform-style: preserve-3d;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        animation-name: example;
+        animation-duration: 1s;
+        animation-delay: 1s;
     }
     
-    .flip-card:hover .flip-card-inner {
-        transform: rotateY(360deg);
+    .flip-card-front,
+    .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .flip-card-front {
+        background-color: #bbb;
+        color: black;
+    }
+    
+    div:hover {
+        color: aqua;
+    }
+    
+    .image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120px;
+        height: 120px;
+        margin: -60px 0 0 -60px;
+        -webkit-animation: spin 4s linear infinite;
+        -moz-animation: spin 4s linear infinite;
+        animation: spin 4s linear infinite;
     }
     
     @keyframes rotation {
@@ -45,46 +73,104 @@
       -webkit-transform: rotate(360deg);
     }
   } */
+    /* css check boxs */
     
-    .flip-card-front,
-    .flip-card-back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
-    
-    .flip-card-front {
-        background-color: #bbb;
-        color: black;
-    }
-    
-    .flip-card-back {
-        background-color: #2980b9;
-        color: white;
-        transform: rotateY(180deg);
-    }
-    
-    div:hover {
-        color: aqua;
+    .radio-item {
+        display: inline-block;
+        position: relative;
+        padding: 0 6px;
+        margin: 10px 0 0;
     }
     
     .rYellow {
         color: yellow;
     }
+    /* li css  */
     
-    .image {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 120px;
-        height: 120px;
-        margin: -60px 0 0 -60px;
-        -webkit-animation: spin 4s linear infinite;
-        -moz-animation: spin 4s linear infinite;
-        animation: spin 4s linear infinite;
+    li:nth-child(4) {
+        color: violet;
     }
+    
+    li {
+        color: green;
+        font-size: 40px;
+    }
+    
+    input[type='radio'] {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: blue;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+        appearance: none;
+    }
+    
+    input[type='radio']:checked {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #ffa500;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+        appearance: none;
+        animation-name: example;
+        animation-duration: 1s;
+        animation-delay: 1s;
+    }
+    
+    ul+div {
+        background-color: white;
+        width: 20px;
+    }
+    
+    @keyframes example {
+        0% {
+            left: 0px;
+            top: 0px;
+        }
+        25% {
+            left: 200px;
+            top: 0px;
+        }
+        50% {
+            left: 200px;
+            top: 200px;
+        }
+        75% {
+            left: 0px;
+            top: 200px;
+        }
+        100% {
+            left: 0px;
+            top: 0px;
+        }
+    }
+    /* #test1:hover {
+        display: none;
+    } */
+    /* div+li {
+        background-color: blue;
+    } */
+    /* li:last-child {
+        color: pink;
+        ;
+    }
+    
+    li {
+        color: green;
+    } *
+
     /* 
 @-moz-keyframes spin {
     100% {
